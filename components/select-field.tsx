@@ -83,9 +83,6 @@ export default function SelectField({
       <FormMessage className="text-xs font-normal text-rose-600">
         {error?.message}
       </FormMessage>
-      <FormMessage className="text-xs font-normal text-rose-600">
-        {error?.message}
-      </FormMessage>
     </FormItem>
   );
 }

@@ -93,6 +93,7 @@ export default function BillForm() {
             render={({ field }) => (
               <InputField
                 field={field}
+                type="number"
                 label="Units"
                 placeholder="123"
                 id="units"
