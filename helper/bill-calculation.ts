@@ -1,20 +1,8 @@
-import customerTariff from '@/_json/customerTariff.json'
+import { customerTariff } from "@/constants/customer-tariff";
 
 interface BillProps {
     consumedUnits: number;
     ampere: string;
-}
-
-
-interface customerTariffProps {
-    [key: string]: {
-        [key: string]: {
-            minAmt: string;
-            initial_energy_rate?: string;
-            energy_rate: string;
-        }
-    }
-
 }
 
 export default function NeaElectricityBillAmountCalculator({
@@ -25,8 +13,10 @@ export default function NeaElectricityBillAmountCalculator({
 
     if (data) {
         if (consumedUnits >= 0 && consumedUnits <= 20) {
+            const rangeData = data["0-20"]
+            const initialEnergyRate = rangeData.initial_energy_rate as number
             return {
-                energyCharge: consumedUnits * data["0-20"].initial_energy_rate,
+                energyCharge: consumedUnits * initialEnergyRate,
                 serviceCharge: data["0-20"].minAmt
             }
         } else if (consumedUnits >= 21 && consumedUnits <= 30) {

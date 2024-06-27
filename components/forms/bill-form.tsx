@@ -35,7 +35,7 @@ export default function BillForm() {
             <p className="block mb-2 text-sm font-medium text-secondary-foreground">
               Bill Calculation
             </p>
-            <div className="px-4 py-2.5 rounded-md w-full bg-secondary">
+            <div className="px-4 py-2.5 rounded-md w-full bg-secondary border-gray-300 dark:border-gray-800">
               <div className="flow-root mb-2">
                 <h5 className="float-left text-sm font-medium">
                   Energy Charge
@@ -81,7 +81,7 @@ export default function BillForm() {
                 label="Select Ampere"
                 field={field}
                 id="ampere"
-                placeholder="select an ampere"
+                placeholder="Select an Ampere"
                 options={AmpereOptions}
                 error={form.formState.errors["ampere"]}
               />

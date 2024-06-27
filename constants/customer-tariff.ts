@@ -1,4 +1,18 @@
-{
+interface TariffDetailsProps {
+    minAmt: number;
+    initial_energy_rate?: number;
+    energy_rate: number;
+}
+
+interface TariffRangesProps {
+    [key: string]: TariffDetailsProps;
+}
+
+interface CustomerTariffProps {
+    [key: string]: TariffRangesProps;
+}
+
+export const customerTariff: CustomerTariffProps = {
     "5amp": {
         "0-20": {
             "minAmt": 30,
