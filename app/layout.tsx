@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+import { ThemeSwitcher } from "@/components/theme-switcher";
+import { cn } from "@/lib/utils";
+import { ThemeProvider } from "./providers/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +21,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(poppins.className, "relative")}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="h-screen flex flex-col items-center md:justify-center gap-4 py-20 sm:py-4">
+            <div className="absolute top-4 right-4">
+              <ThemeSwitcher />
+            </div>
+            {children}
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
