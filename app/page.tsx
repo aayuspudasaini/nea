@@ -11,9 +11,9 @@ export default function Home() {
         <Image
           src={logo}
           alt="Nea Logo"
-          width={360}
+          height={200}
           priority
-          className="h-18"
+          className="w-full sm:w-[320px]"
         />
       </Link>
       <Card className="w-full max-w-md rounded-md">

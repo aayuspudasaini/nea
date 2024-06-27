@@ -30,7 +30,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="h-screen flex flex-col items-center md:justify-center gap-4 py-20 md:py-4">
+          <div className="h-screen flex flex-col items-center md:justify-center gap-4 py-20 md:py-4 px-4 sm:px-0">
             <div className="absolute top-4 right-4">
               <ThemeSwitcher />
             </div>
